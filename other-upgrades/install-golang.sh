@@ -39,7 +39,7 @@ echo -e '\n>>> Installing golang <<<\n'
 
 VERSION="$1"
 if [ "$VERSION" == "" ]; then
-    VERSION=`wget -q https://golang.org/ -O - | grep -o 'Build version go[0-9]\.[0-9]*\.*[0-9]*' | sed 's/Build version go//g'`
+    VERSION=`wget -q https://golang.org/ -O - | grep -Po 'Build version go[0-9]\.[0-9]*(\.[0-9])*' | sed 's/Build version go//g'`
 fi
 
 INSTALLED=""
